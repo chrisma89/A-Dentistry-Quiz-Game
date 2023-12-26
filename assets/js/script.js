@@ -40,17 +40,18 @@ const quizQuestions = [
     answersD : "34"
   }
 ]
-
-const startQuiz =document.querySelector("questions")
-startQuiz.addEventListener("click", quizStart())
+  const start = document.querySelector("#start")
+  start.addEventListener("click", quizStart)
 function quizStart () {
-
-  for (let i = 0; i < quizQuestions.length; i++) {
-    // console.log(quizQuestions[0].questionOne)
-    startQuiz.textContent = quizQuestions[0].questionOne
+  const wrapper = document.querySelector(".wrapper")
+  wrapper.style.display = "none";
+  // for (let i = 0; i < quizQuestions.length; i++) {
+  //   // console.log(quizQuestions[0].questionOne)
+  //   startQuiz.textContent = quizQuestions[0].questionOne
     
-  }
-  
+  // }
+
 }
+
 
 
