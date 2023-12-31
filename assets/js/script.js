@@ -39,6 +39,7 @@ const quizQuestions = [
   const start = document.querySelector("#start")
   start.addEventListener("click", quizStart)
 function quizStart () {
+  setTime()
   const startScreen = document.querySelector("#start-screen")
   startScreen.style.display = "none";
   quizDisplay()
@@ -65,7 +66,23 @@ function quizChoices (){
     startChoices.appendChild(button)
 }
 }
-// console.log("button")
+// timer
+
+function setTime() {
+let secondsLeft = 75;
+  const timerInterval = setInterval(function(){
+    secondsLeft --;
+    const timer = document.querySelector(".timer");
+    timer.textContent= secondsLeft;
+
+    if(secondsLeft === 0){
+      const gameEnd = document.querySelector("end-screen")
+      gameEnd.style.display="block";
+    }
+
+  },1000)
+  
+};
 
 
 
