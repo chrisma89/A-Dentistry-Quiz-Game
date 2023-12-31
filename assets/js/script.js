@@ -52,7 +52,7 @@ function quizStart () {
     const startQuiz = document.querySelector("#question-title")
     startQuiz.textContent = quizQuestions[i].question
     quizChoices()
-    return
+    
     }
 }
 
@@ -76,7 +76,9 @@ let secondsLeft = 75;
     timer.textContent= secondsLeft;
 
     if(secondsLeft === 0){
-      const gameEnd = document.querySelector("end-screen")
+      clearInterval(timerInterval)
+      questions.style.display = "none";
+      const gameEnd = document.querySelector("#end-screen")
       gameEnd.style.display="block";
     }
 
