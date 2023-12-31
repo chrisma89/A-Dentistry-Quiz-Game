@@ -56,24 +56,28 @@ function quizStart () {
     const startQuiz = document.querySelector("#question-title")
     startQuiz.textContent = quizQuestions[questionsIndex].question
     quizChoices(questionsIndex)
-    questionsIndex++
+    
     }
   }
 
   const startChoices = document.querySelector(".choices")
   const button = document.createElement("button")
  
+  // let answerIndex =0;
 function quizChoices (){
-  for (let i=0; i<4; i++){
+  // let answerIndex =0;
+  for (let answerIndex=0; answerIndex<4; answerIndex++){
   const startChoices = document.querySelector(".choices")
     const button = document.createElement("button")
  
-    button.textContent = quizQuestions[questionsIndex].answers[i]
+    button.textContent = quizQuestions[questionsIndex].answers[answerIndex]
     // button.className = "button"
+    button.addEventListener("click", function(){userClick(questionsIndex, answerIndex)})
     startChoices.appendChild(button)
     
   }
-startChoices.addEventListener("click", userClick)
+ 
+// startChoices.addEventListener("click", userClick)
 }
 
 // timer
@@ -96,13 +100,14 @@ let secondsLeft = 75;
   
 };
 
-function userClick(){
-  if(startChoices === quizQuestions[questionsIndex].correctAnswer){
+function userClick(questionsIndex, answerIndex){
+  if(answerIndex === quizQuestions[questionsIndex].correctAnswer){
     alert("That is correct")
   }
   else{
     alert("Wrong answer")
   }
+  questionsIndex++
 }
 
 
