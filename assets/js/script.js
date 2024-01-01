@@ -39,7 +39,7 @@ const quizQuestions = [
   const start = document.querySelector("#start")
   start.addEventListener("click", quizStart)
   let questionsIndex = 0;
-  let timerInterval = 0;
+  let timerInterval;
 
 
 
@@ -88,18 +88,16 @@ function quizChoices (){
 
 // timer
 let secondsLeft = 75;
+
 function setTime() {
 
-  const timerInterval = setInterval(function(){
+    timerInterval = setInterval(function(){
     secondsLeft --;
     const timer = document.querySelector(".timer");
     timer.textContent= secondsLeft;
 
     if(secondsLeft === 0){
-      clearInterval(timerInterval)
-      questions.style.display = "none";
-      const gameEnd = document.querySelector("#end-screen")
-      gameEnd.style.display="block";
+      gameEnd()
     }
 
   },1000)
@@ -114,30 +112,40 @@ function userClick(answerIndex){
     feedbacktext.textContent = "Correct";
   
   }
-  else {
+  else{
     // alert("Wrong answer")
     feedbacktext.textContent ="Wrong";
     secondsLeft -= 10;
+    }
 
-  }
 
   setTimeout(function(){
     feedbacktext.textContent = "";
     questionsIndex++
+
  if (questionsIndex < quizQuestions.length){
   quizDisplay()
   quizChoices()
 }
+
 else{
+  gameEnd()
+    }
+
+  if (secondsLeft <= 0){
+      gameEnd()
+      }
+  }, 1000);
+}
+
+function gameEnd (){
   clearInterval(timerInterval)
       questions.style.display = "none";
       const gameEnd = document.querySelector("#end-screen")
       gameEnd.style.display="block";
-}
-
-  }, 1000);
-}
-
+      const finalScore = document.querySelector("#final-score");
+      finalScore.textContent = "0";
+  }
 
 
 
