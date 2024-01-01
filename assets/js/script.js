@@ -149,7 +149,7 @@ function gameEnd (){
 
 
 
-// Storing user initials and dispalying high scores
+// Storing user initials and displaying high scores
 
 const submitBtn = document.querySelector("#submit")
 const finalScore = document.querySelector("#final-score");
@@ -161,6 +161,8 @@ submitBtn.addEventListener("click", function(event){
   let final_score = finalScore.textContent
   localStorage.setItem("initials",initials)
   localStorage.setItem("final-score", final_score)
+  window.location.href = "highscores.html";
+
   }
 )
 
