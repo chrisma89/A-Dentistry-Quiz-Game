@@ -144,11 +144,25 @@ function gameEnd (){
       const gameEnd = document.querySelector("#end-screen")
       gameEnd.style.display="block";
       const finalScore = document.querySelector("#final-score");
-      finalScore.textContent = "0";
+      finalScore.textContent = secondsLeft;
   }
 
 
 
-// 
+// Storing user initials and dispalying high scores
+
+const submitBtn = document.querySelector("#submit")
+const finalScore = document.querySelector("#final-score");
+
+submitBtn.addEventListener("click", function(event){
+  event.preventDefault();
+
+  let initials = document.querySelector("#initials").value
+  let final_score = finalScore.textContent
+  localStorage.setItem("initials",initials)
+  localStorage.setItem("final-score", final_score)
+  }
+)
+
 
 
