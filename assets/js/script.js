@@ -83,7 +83,7 @@ function quizChoices (){
     startChoices.appendChild(button)
     
   }
-  
+ 
 }
 
 // timer
@@ -107,13 +107,22 @@ let secondsLeft = 75;
 };
 
 function userClick(answerIndex){
+
+  const feedbacktext = document.querySelector(".feedbacktext")
   if(answerIndex === quizQuestions[questionsIndex].correctAnswer){
-    alert("That is correct")
+    // alert("That is correct")
+    feedbacktext.textContent = "Correct";
+  
   }
   else {
-    alert("Wrong answer")
+    // alert("Wrong answer")
+    feedbacktext.textContent ="Wrong";
+
   }
- questionsIndex++
+
+  setTimeout(function(){
+    feedbacktext.textContent = "";
+    questionsIndex++
  if (questionsIndex < quizQuestions.length){
   quizDisplay()
   quizChoices()
@@ -124,7 +133,12 @@ else{
       const gameEnd = document.querySelector("#end-screen")
       gameEnd.style.display="block";
 }
+
+  }, 1000);
 }
+
+
+
 
 // 
 
