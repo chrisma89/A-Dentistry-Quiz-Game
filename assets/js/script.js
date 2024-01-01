@@ -87,9 +87,9 @@ function quizChoices (){
 }
 
 // timer
-
-function setTime() {
 let secondsLeft = 75;
+function setTime() {
+
   const timerInterval = setInterval(function(){
     secondsLeft --;
     const timer = document.querySelector(".timer");
@@ -117,6 +117,7 @@ function userClick(answerIndex){
   else {
     // alert("Wrong answer")
     feedbacktext.textContent ="Wrong";
+    secondsLeft -= 10;
 
   }
 
