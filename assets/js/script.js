@@ -38,46 +38,52 @@ const quizQuestions = [
 
   const start = document.querySelector("#start")
   start.addEventListener("click", quizStart)
-
   let questionsIndex = 0;
+  let timerInterval = 0;
+
+
+
 function quizStart () {
   setTime()
   const startScreen = document.querySelector("#start-screen")
   startScreen.style.display = "none";
-  quizDisplay(questionsIndex)
-}
-
- function quizDisplay(questionsIndex){
-
-  if(questionsIndex === 0){
+  quizDisplay()
+  quizChoices()
+ }
+  
+  
+  
   const questions = document.querySelector("#questions")
   questions.style.display = "block";
 
+ function quizDisplay(){
     const startQuiz = document.querySelector("#question-title")
     startQuiz.textContent = quizQuestions[questionsIndex].question
-    quizChoices(questionsIndex)
-    
-    }
-  }
 
+    // quizChoices()
+
+    }
+  
+
+
+
+function quizChoices (){  
   const startChoices = document.querySelector(".choices")
-  const button = document.createElement("button")
+  startChoices.innerHTML ="";
+  // const button = document.createElement("button")
+  
+  for (let answerIndex=0; answerIndex < 4; answerIndex++){
  
-  // let answerIndex =0;
-function quizChoices (){
-  // let answerIndex =0;
-  for (let answerIndex=0; answerIndex<4; answerIndex++){
-  const startChoices = document.querySelector(".choices")
+
     const button = document.createElement("button")
  
     button.textContent = quizQuestions[questionsIndex].answers[answerIndex]
     // button.className = "button"
-    button.addEventListener("click", function(){userClick(questionsIndex, answerIndex)})
+    button.addEventListener("click", function(){userClick(answerIndex)})
     startChoices.appendChild(button)
     
   }
- 
-// startChoices.addEventListener("click", userClick)
+  
 }
 
 // timer
@@ -100,14 +106,26 @@ let secondsLeft = 75;
   
 };
 
-function userClick(questionsIndex, answerIndex){
+function userClick(answerIndex){
   if(answerIndex === quizQuestions[questionsIndex].correctAnswer){
     alert("That is correct")
   }
-  else{
+  else {
     alert("Wrong answer")
   }
-  questionsIndex++
+ questionsIndex++
+ if (questionsIndex < quizQuestions.length){
+  quizDisplay()
+  quizChoices()
 }
+else{
+  clearInterval(timerInterval)
+      questions.style.display = "none";
+      const gameEnd = document.querySelector("#end-screen")
+      gameEnd.style.display="block";
+}
+}
+
+// 
 
 
