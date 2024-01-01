@@ -73,7 +73,7 @@ function quizChoices (){
   // const button = document.createElement("button")
   
   for (let answerIndex=0; answerIndex < 4; answerIndex++){
- 
+  const startChoices = document.querySelector(".choices")
 
     const button = document.createElement("button")
  
