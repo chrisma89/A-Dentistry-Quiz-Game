@@ -3,9 +3,9 @@ function displayHighscores(){
 
   const highScoreslist = document.querySelector("#highscores")
   let highScore = JSON.parse(localStorage.getItem("highScore"))|| [];
-  highScore.sort(function(i, j){
-    return j.final_score - i.final_score
-  })
+  // highScore.sort(function(i, j){
+  //   return j.final_score - i.final_score
+  // })
 
 // console.log(highScoreslist)
 highScoreslist.innerHTML = "";
@@ -29,6 +29,9 @@ for (let i =0; i < highScore.length; i++){
   highScoreslist.appendChild(initials)
   
 }
+highScore.sort(function(i, j){
+  return j.final_score - i.final_score
+})
 
 
 }
