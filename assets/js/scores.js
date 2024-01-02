@@ -1,9 +1,11 @@
 function displayHighscores(){
 
-  
+
   const highScoreslist = document.querySelector("#highscores")
   let highScore = JSON.parse(localStorage.getItem("highScore"))|| [];
-// for(let i=0; i < highScore.length; i++){
+  highScore.sort(function(i, j){
+    return j.final_score - i.final_score
+  })
 
 // console.log(highScoreslist)
 highScoreslist.innerHTML = "";
@@ -23,26 +25,36 @@ for (let i =0; i < highScore.length; i++){
   const displayscore = highScore[i];
   let initials = document.createElement("li") 
   initials.textContent = displayscore.initials + " - " + displayscore.final_score;
+
   highScoreslist.appendChild(initials)
+  
 }
 
-console.log(highScore)
-console.log(userHighscores)
+
 }
 
 
 document.addEventListener("DOMContentLoaded", (event) => {
   displayHighscores();
+
 });
 
 
-// const clearScore = document.querySelector("#clear")
+const clearScore = document.querySelector("#clear")
 
-// clearScore.addEventListener("click", clear())
+clearScore.addEventListener("click", clear)
 
-// function clear(){
-//  localStorage.clear()
-// }
+function clear(){
+ localStorage.clear()
+ 
+ const highScoreslist = document.querySelector("#highscores")
+
+  highScoreslist.innerHTML= "";
+  
+ 
+//  initials.textContent ="";
+//  displayHighscores()
+}
 
 
 

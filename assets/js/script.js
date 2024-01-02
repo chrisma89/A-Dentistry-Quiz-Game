@@ -165,25 +165,6 @@ submitBtn.addEventListener("click", function(event){
   }
 )
 
-// function displayHighscores(){
-
-  
-//   const highScoreslist = document.querySelector("#highscores")
-//   const userHighscores = JSON.parselocalStorage.getItem("final-score")
-//   const userInitials = JSON.parse(localStorage.getItem("initials"))
-// const initials = document.createElement("li")
-// highScores.appendChild(initials)
-//   highScores.textContent = userHighscores;
-//   initials.textContent = userInitials
-  
-
-
-// }
-
-document.addEventListener("DOMContentLoaded", (event) => {
-  // displayHighscores();
-}
-)
 
 
 
