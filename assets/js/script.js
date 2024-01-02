@@ -112,11 +112,22 @@ function userClick(answerIndex){
     feedbacktext.textContent = "Correct";
   
   }
-  else{
+  
+  else if (answerIndex !== quizQuestions[questionsIndex].correctAnswer){
     // alert("Wrong answer")
     feedbacktext.textContent ="Wrong";
+    
+    if (secondsLeft > 10){
     secondsLeft -= 10;
     }
+    else {
+      secondsLeft =0;
+    }
+    }
+    if (secondsLeft == 0){
+      gameEnd()
+    }
+    
 
 
   setTimeout(function(){
@@ -132,7 +143,7 @@ else{
   gameEnd()
     }
 
-  if (secondsLeft <= 0){
+  if (secondsLeft === 0){
       gameEnd()
       }
   }, 1000);

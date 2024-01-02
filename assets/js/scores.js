@@ -3,21 +3,19 @@ function displayHighscores(){
 
   const highScoreslist = document.querySelector("#highscores")
   let highScore = JSON.parse(localStorage.getItem("highScore"))|| [];
-  // highScore.sort(function(i, j){
-  //   return j.final_score - i.final_score
-  // })
+ 
 
-// console.log(highScoreslist)
+
 highScoreslist.innerHTML = "";
 const userHighscores = JSON.parse(localStorage.getItem("final_score"))
   const userInitials = JSON.parse(localStorage.getItem("initials"))
-// const initials = document.createElement("li")
 
-  
-  // initials.textContent = userInitials
  
 
-highScore.push({"initials" : userInitials, "final_score" : userHighscores})
+highScore.push({"initials" : userInitials, "final_score" : userHighscores}) 
+highScore.sort(function(i, j){
+    return j.final_score - i.final_score
+  })
 
 localStorage.setItem("highScore", JSON.stringify(highScore))
 
@@ -29,9 +27,7 @@ for (let i =0; i < highScore.length; i++){
   highScoreslist.appendChild(initials)
   
 }
-highScore.sort(function(i, j){
-  return j.final_score - i.final_score
-})
+
 
 
 }
@@ -55,7 +51,7 @@ function clear(){
   highScoreslist.innerHTML= "";
   
  
-//  initials.textContent ="";
+
 //  displayHighscores()
 }
 
