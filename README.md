@@ -1,4 +1,4 @@
-# Chrisma-Code-Quiz
+# Chrisma-Quiz
 
 ## About the Project
 
