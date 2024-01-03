@@ -36,13 +36,13 @@ This repository has been built using
 
 ### Installation
 
-This webpage can be rendered by visiting the url : https://chrisma89.github.io/Chrisma-Code-Quiz/
-The code can be viewed at github: https://github.com/chrisma89/Chrisma-Code-Quiz
+This webpage can be rendered by visiting the url : https://chrisma89.github.io/Chrisma-Quiz/
+The code can be viewed at github: https://github.com/chrisma89/Chrisma-Quiz
 
 ### Usage
 
 
-The screenshot of the webpage is below : ![webpagescreenshot](./images/screencapture-chrisma89-github-io-Chrisma-Code-Quiz-2024-01-03-13_13_15.png)
+The screenshot of the webpage is below : ![webpagescreenshot](./images/Webpage%20screenshot.png)
 
 ### Credits
 - Thank you to the curriculum team behind bootcampspot for the starter files
