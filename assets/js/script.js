@@ -1,4 +1,4 @@
-// Array of objects with quix questions
+// Array of objects with quiz questions
 const quizQuestions = [
 
   {
@@ -41,8 +41,6 @@ const quizQuestions = [
   let questionsIndex = 0;
   let timerInterval;
 
-
-
 function quizStart () {
   setTime()
   const startScreen = document.querySelector("#start-screen")
@@ -52,25 +50,22 @@ function quizStart () {
  }
   
   
-  
+  // questions and choices display
   const questions = document.querySelector("#questions")
   questions.style.display = "block";
 
  function quizDisplay(){
     const startQuiz = document.querySelector("#question-title")
     startQuiz.textContent = quizQuestions[questionsIndex].question
-
-    // quizChoices()
-
-    }
+  }
   
 
 
 
-function quizChoices (){  
+  function quizChoices (){  
   const startChoices = document.querySelector(".choices")
   startChoices.innerHTML ="";
-  // const button = document.createElement("button")
+  
   
   for (let answerIndex=0; answerIndex < 4; answerIndex++){
   const startChoices = document.querySelector(".choices")
@@ -78,7 +73,7 @@ function quizChoices (){
     const button = document.createElement("button")
  
     button.textContent = quizQuestions[questionsIndex].answers[answerIndex]
-    // button.className = "button"
+
     button.addEventListener("click", function(){userClick(answerIndex)})
     startChoices.appendChild(button)
     
@@ -104,17 +99,19 @@ function setTime() {
   
 };
 
+
+// feedback for button click by user
 function userClick(answerIndex){
 
   const feedbacktext = document.querySelector(".feedbacktext")
   if(answerIndex === quizQuestions[questionsIndex].correctAnswer){
-    // alert("That is correct")
+ 
     feedbacktext.textContent = "Correct";
   
   }
   
   else if (answerIndex !== quizQuestions[questionsIndex].correctAnswer){
-    // alert("Wrong answer")
+
     feedbacktext.textContent ="Wrong";
     
     if (secondsLeft > 10){
@@ -129,7 +126,7 @@ function userClick(answerIndex){
     }
     
 
-
+// delay to enable viewing of feedback
   setTimeout(function(){
     feedbacktext.textContent = "";
     questionsIndex++
@@ -149,6 +146,8 @@ else{
   }, 1000);
 }
 
+
+// end of quiz and display of score
 function gameEnd (){
   clearInterval(timerInterval)
       questions.style.display = "none";
