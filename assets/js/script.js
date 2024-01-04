@@ -155,6 +155,8 @@ function gameEnd (){
       gameEnd.style.display="block";
       const finalScore = document.querySelector("#final-score");
       finalScore.textContent = secondsLeft;
+      const timer = document.querySelector(".timer");
+    timer.textContent= secondsLeft;
   }
 
 

@@ -1,5 +1,5 @@
 
-// dispalying highscores in descending order
+// displaying highscores in descending order
 
 let highScore= [];
 function displayHighscores(){
@@ -21,9 +21,9 @@ highScore.sort(function(i, j){
     return j.final_score - i.final_score
   })
 
-localStorage.setItem("highScore", JSON.stringify(highScore))
 
 
+if(localStorage.length){
 for (let i =0; i < highScore.length; i++){
   const displayscore = highScore[i];
   let initials = document.createElement("li") 
@@ -31,6 +31,7 @@ for (let i =0; i < highScore.length; i++){
 
   highScoreslist.appendChild(initials)
   }
+}
 }
 
 
