@@ -46,7 +46,8 @@ The screenshot of the webpage is below : ![webpagescreenshot](./images/Webpage%2
 
 ### Credits
 - Thank you to the curriculum team behind bootcampspot for the starter files
-- Thank you to the instructor Laura Cole for the pseudocode
+- Thank you to the instructor ,ms.Laura Cole, for the pseudocode
+- Thank you to tutor, Mr Jaytee Padilla, for his help in debugging the code.
 
 
 
